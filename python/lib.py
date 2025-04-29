@@ -26,10 +26,10 @@ def get_huffman_code(counter):
         heapq.heappush(heap, (new_value, new_key))
 
         for c in key1:
-            huffman_code[c].append("0")
+            huffman_code[c].insert(0, "0")
 
         for c in key2:
-            huffman_code[c].append("1")
+            huffman_code[c].insert(0, "1")
 
     for key in counter.keys():
         huffman_code[key] = "".join(huffman_code[key])
