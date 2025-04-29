@@ -13,6 +13,11 @@ def get_huffman_code(counter):
     for key in counter.keys():
         huffman_code[key] = []
 
+    if len(heap) == 1:
+        _value, key = heapq.heappop(heap)
+        huffman_code[key] = "0"
+        return huffman_code
+
     while len(heap) > 1:
         value1, key1 = heapq.heappop(heap)
         value2, key2 = heapq.heappop(heap)

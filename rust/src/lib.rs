@@ -30,6 +30,12 @@ pub fn get_huffman_code(counter: HashMap<char, usize>) -> HashMap<char, String> 
         huffman_code.insert(*key, String::new());
     }
 
+    if heap.len() == 1 {
+        let Reverse((_value, key)) = heap.pop().unwrap();
+        huffman_code.insert(key.chars().next().unwrap(), "0".to_string());
+        return huffman_code;
+    }
+
     while heap.len() > 1 {
         let Reverse((value1, key1)) = heap.pop().unwrap();
         let Reverse((value2, key2)) = heap.pop().unwrap();

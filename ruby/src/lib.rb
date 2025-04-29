@@ -29,6 +29,12 @@ def get_huffman_code(counter)
     huffman_code[key] = ""
   }
 
+  if heap.size == 1
+    _value, key = heap.pop
+    huffman_code[key] = "0"
+    return huffman_code
+  end
+
   while heap.size > 1
     value1, key1 = heap.pop
     value2, key2 = heap.pop

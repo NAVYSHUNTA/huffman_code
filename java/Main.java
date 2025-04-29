@@ -47,6 +47,13 @@ public class Main {
             huffmanCode.put(entry.getKey(), "");
         }
 
+        if (heap.size() == 1) {
+            Map<Integer, String> ele = heap.poll();
+            Integer value = ele.keySet().iterator().next();
+            String key = ele.get(value);
+            huffmanCode.put(key.charAt(0), "0");
+        }
+
         while (heap.size() > 1) {
             Map<Integer, String> ele1 = heap.poll();
             Map<Integer, String> ele2 = heap.poll();
